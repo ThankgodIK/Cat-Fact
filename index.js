@@ -7,23 +7,24 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(cors());
-
 app.use(express.json());
 
 app.get("/me", async (req, res) => {
   try {
     const catFact = await getCatFact();
+    res.setHeader("Content-Type", "application/json");
     res.json({
       status: "success",
-      message: `Welcome back, ${user.name}!`,
       user,
-      catFact: catFact.fact,
-      timeStamp: new Date().toISOString(),
+      timestamp: new Date().toISOString(),
+      catFact,
     });
   } catch (error) {
-    res
-      .status(500)
-      .json({ status: "error", message: "Failed to fetch cat fact", error });
+    res.status(500).json({
+      status: "error",
+      message: "Failed to fetch cat fact",
+      error: error.message,
+    });
   }
 });
 

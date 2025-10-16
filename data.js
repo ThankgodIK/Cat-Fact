@@ -1,6 +1,6 @@
 const user = {
+  email: "ikefuamakelechi@gmail.com",
   name: "Thankgod Ikefuama",
-  stack: "Full-Stack Developer",
-  email: "thankgod@example.com",
+  stack: "Node.js",
 };
 export default user;
