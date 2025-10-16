@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: cat-fact
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    plan: free
