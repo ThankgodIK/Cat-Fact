@@ -11,13 +11,13 @@ app.use(express.json());
 
 app.get("/me", async (req, res) => {
   try {
-    const catFact = await getCatFact();
+    const fact = await getCatFact();
     res.setHeader("Content-Type", "application/json");
     res.json({
       status: "success",
       user,
       timestamp: new Date().toISOString(),
-      catFact,
+      fact,
     });
   } catch (error) {
     res.status(500).json({
